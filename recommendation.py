@@ -20,6 +20,8 @@ def recommend_two(category1, category2, nutrition_type, threshold):
 				choices.append((product1, product2, nutrition1[nutrition_type] + nutrition2[nutrition_type]))
 	pprint(choices)
 
-recommend_one('breakfast', 'calories', 500)
-
-recommend_two('burgers', 'drinks', 'calories', 800)
+print("Recommendation for breakfast:\n")
+recommend_one('breakfast', 'calories', 350)
+print()
+print("Recommendation for burgers and drinks:\n")
+recommend_two('burgers', 'drinks', 'calories', 400)

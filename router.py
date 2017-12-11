@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-	return 'Hello World!'
+	return 'Welcome to the Recommendation System for McDonald!'
 
 @app.route('/get')
 def get_products():

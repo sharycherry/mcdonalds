@@ -34,7 +34,7 @@ def get_submenu(rooturl, li):
 	for div in contents:
 		subitem = div.find('h4', class_="making-iconic-header").text.strip()
 		submenu[subitem.lower()] = get_subitem(rooturl, div)
-	pprint(submenu)
+	#pprint(submenu)
 	return submenu
 
 
