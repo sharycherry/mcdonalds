@@ -16,9 +16,9 @@ def display():
 	food_types = ['Vegetarian', 'Chicken', 'Beef']
 	nutrition_types = ['Calories', 'Protein', 'Carbohydrates', 'Sugars']
 	dessert_types = list(DATA["desserts & shakes"].keys())
-	dessert_types.append("none")
+	dessert_types.append("None")
 	drink_types = list(DATA["drinks"].keys())
-	drink_types.append("none")
+	drink_types.append("None")
 
 	# pass the data food_types, nutrition_types, dessert_types, and drink_types to 'display.html' as options
 	return render_template('display.html', food_types=food_types, nutrition_types=nutrition_types, 
@@ -37,12 +37,12 @@ def recommendations():
 	drink_type = request.form.get('drink_types')
 
 	# only choose the drink_type, so set the dessert_nutrition to zero
-	if dessert_type == 'none':
+	if dessert_type == 'None':
 		dessert_nutrition = 0
 	else:
 		dessert_nutrition = float(DATA["desserts & shakes"][dessert_type][nutrition_type])
 
-	if drink_type == 'none':
+	if drink_type == 'None':
 		drink_nutrition = 0
 	else:
 		drink_nutrition = float(DATA["drinks"][drink_type][nutrition_type])
