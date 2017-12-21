@@ -3,7 +3,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-
+# create url and send the url request to get response
 def get_soup(rooturl, tag):
 	url = rooturl + tag.a.attrs.get('href')
 	ret = requests.get(url)
@@ -15,6 +15,7 @@ def get_subitem(rooturl, div):
 	soup = get_soup(rooturl, div)
 	contents = soup.find_all('div', class_="component-product-detail")
 	itemID = contents[0].find_all('div', class_="itemID")[0].attrs.get('data-item-id')
+	# the nutrition information can be retrived by the jsonurl request
 	baseurl = "https://www.mcdonalds.com/wws/json/getItemDetails.htm?country=US&language=en&showLiveData=true&item="
 	jsonurl = baseurl + itemID
 	
@@ -34,7 +35,6 @@ def get_submenu(rooturl, li):
 	for div in contents:
 		subitem = div.find('h4', class_="making-iconic-header").text.strip()
 		submenu[subitem.lower()] = get_subitem(rooturl, div)
-	#pprint(submenu)
 	return submenu
 
 
@@ -53,12 +53,12 @@ def get_menu():
 
 	for li in menulist:
 		category = li.text.strip()
+		# for each submenu, get its nutrition information
 		menu[category.lower()] = get_submenu(rooturl, li)
-		# test = get_submenu(rooturl, li)
-		# fout.write(test)
 
 	jsonmenu = json.dumps(menu, indent = 4)
 	fout.write(jsonmenu)
+
 get_menu()
 
 

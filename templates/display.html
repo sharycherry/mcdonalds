@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+</head>
+<body>
+<p>Welcome to the Recommendation System for McDonald!</p>
+
+<form class="form-inline" method="POST" action="{{ url_for('recommendations') }}">
+	<div class="form-group">
+		<div class="input-group">
+			<p class="input-group-addon">Please select food type</p>
+			<select name="food_types" class="selectpicker form-control" method="GET" action="/">
+				{% for food_type in food_types %}
+				<option value= "{{food_type}}" SELECTED>{{food_type}}</option>"
+				{% endfor %}
+			</select>
+
+			<p class="input-group-addon">Please select nutrition type</p>
+			<select name="nutrition_types" class="selectpicker form-control" method="GET" action="/">
+				{% for nutrition_type in nutrition_types %}
+				<option value= "{{nutrition_type}}" SELECTED>{{nutrition_type}}</option>"
+				{% endfor %}
+			</select>
+
+			<p class="input-group-addon">Please select the dessert or shake you like</p>
+			<select name="dessert_types" class="selectpicker form-control" method="GET" action="/">
+				{% for dessert_type in dessert_types %}
+				<option value= "{{dessert_type}}" SELECTED>{{dessert_type}}</option>"
+				{% endfor %}
+			</select>
+
+			<p class="input-group-addon">Please select the drink you like</p>
+			<select name="drink_types" class="selectpicker form-control" method="GET" action="/">
+				{% for drink_type in drink_types %}
+				<option value= "{{drink_type}}" SELECTED>{{drink_type}}</option>"
+				{% endfor %}
+			</select>
+
+			<p class="input-group-addon">Please input the nutrition threshold</p>
+			<input name="text">
+		</div>
+		<button type="submit" class="btn btn-default">Go</button>
+	</div>
+</form>
+
+
+</select>
+</body>
+</html>

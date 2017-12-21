@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+    <style type="text/css">
+      table, th, td {
+        border: 1px solid black;
+      }
+      table {
+      	width: 80%;
+      }
+
+      img {
+        width: 80px;
+      }
+    </style>
+</head>
+<body>
+<p>Welcome to the Recommendation System for McDonald!</p>
+
+<table>
+{% for row_index in range(choices|count) %}
+    <tr>
+      <td>{{ row_index + 1 }}</td>
+      {% for item in choices[row_index] %}
+      <td>{{ item }}</td>
+      {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+<p>Or you can roll a dice to get a random recommendation</p>
+<a href="random">
+  <img src="/static/White_Dice.png">
+</a>
+
+
+</body>
+</html>
